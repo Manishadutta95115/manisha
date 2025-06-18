@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Manisha Dutta - WordPress Developer & AI Automation Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    background: #081338; /* Very dark blue */
+    color: #e6e1dc; /* light cream */
+    line-height: 1.6; 
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: #d4af37; /* golden */
+    text-decoration: none; 
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #bfa136;
+    outline-offset: 2px;
+  }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    padding: 0 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section {
+    padding: 64px 0;
+  }
+  h1, h2, h3, h4 {
+    margin-top: 0; margin-bottom: 0.75rem; 
+    font-weight: 800;
+    color: #f5f1e9; /* off white */
+  }
+  p {
+    margin-top: 0; margin-bottom: 1rem; 
+    color: #cfc7bb; /* muted cream */
+  }
+  /* Header */
+  header {
+    background: linear-gradient(90deg, #0a1435 0%, #0a1435 50%, #d4af37 50%, #0a1435 100%);
+    color: #f5f1e9;
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(212,175,55,0.4);
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.75rem;
+    letter-spacing: 0.06em;
+    user-select: none;
+    cursor: default;
+    text-shadow: 0 0 8px #d4af37cc;
+  }
+  nav {
+    display: flex;
+    gap: 32px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 0;
+    position: relative;
+    color: #f5f1e9;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #d4af37;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+  .material-icons {
+    vertical-align: middle;
+    color: #d4af37;
+  }
+  /* Hero */
+  .hero {
+    background: #07132b;
+    color: #f5f1e9;
+    padding: 128px 24px 96px;
+    text-align: center;
+    border-radius: 16px;
+    margin: 48px auto 80px;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+  }
+  .hero h1 {
+    font-size: 3.25rem;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    text-shadow: 0 0 12px #d4af37cc;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #cfc7bb;
+  }
+  /* Services Section */
+  #services .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 64px;
+    text-shadow: 0 0 10px #d4af37bb;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 32px;
+  }
+  .service-card {
+    background: #11224b; /* darker blue */
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(212,175,55,0.15);
+    padding: 32px 24px;
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #e6e1dc;
+  }
+  .service-card:hover, .service-card:focus-within {
+    box-shadow: 0 15px 35px rgba(212,175,55,0.7);
+    transform: translateY(-8px);
+    outline: none;
+  }
+  .service-icon {
+    background: #d4af37;
+    color: #07132b;
+    font-size: 48px;
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 14px rgba(212,175,55,0.8);
+  }
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #f5f1e9;
+    text-shadow: 0 0 8px #d4af37bb;
+  }
+  .service-desc {
+    color: #cfc7bb;
+    font-size: 1rem;
+  }
+  /* Portfolio Section */
+  #portfolio .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 64px;
+    text-shadow: 0 0 10px #d4af37bb;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 32px;
+  }
+  .portfolio-item {
+    background: #11224b;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(212,175,55,0.15);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    color: #e6e1dc;
+  }
+  .portfolio-item:hover, .portfolio-item:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(212,175,55,0.7);
+    outline: none;
+  }
+  .portfolio-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #d4af37;
+  }
+  .portfolio-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    color: #e6e1dc;
+  }
+  .portfolio-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #f5f1e9;
+    text-shadow: 0 0 8px #d4af37bb;
+  }
+  .portfolio-desc {
+    font-size: 1rem;
+    color: #cfc7bb;
+    flex-grow: 1;
+  }
+  .portfolio-tech {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: #d4af37;
+    font-weight: 600;
+  }
+  /* Footer */
+  footer {
+    background: #07132b;
+    color: #d4af37;
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: inset 0 1px 0 #223366;
+  }
+  footer a {
+    color: #f5f1e9;
+    font-weight: 600;
+  }
+  footer a:hover,
+  footer a:focus {
+    color: #d4af37;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+    .hero {
+      padding: 96px 16px 64px;
+      margin: 40px 12px 60px;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+    nav {
+      gap: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-container container" role="banner">
+    <div class="logo" aria-label="Manisha Dutta Logo">Manisha Dutta</div>
+    <nav role="navigation" aria-label="Primary">
+      <a href="#services" tabindex="0">Services</a>
+      <a href="#portfolio" tabindex="0">Portfolio</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 id="hero-title">WordPress Developer &amp; AI Automation Expert</h1>
+      <p>Hi, I'm Manisha Dutta — specialized in building cutting-edge WordPress websites and  integrating AI-powered automation that streamline workflows, save time , enhance productivity,and drive success. Explore my services and portfolio below.</p>
+    </div>
+  </section>
+
+  <section id="services" role="region" aria-labelledby="services-title" class="container">
+    <h2 id="services-title" class="section-title">My Services</h2>
+    <div class="services-grid">
+      <article class="service-card" tabindex="0" aria-label="Custom WordPress development">
+        <span class="material-icons service-icon" aria-hidden="true">code</span>
+        <h3 class="service-title">Custom WordPress Development</h3>
+        <p class="service-desc">Personalized WordPress websites tailored to your brand and business goals, ensuring performance and responsiveness.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="AI Automation Solutions">
+        <span class="material-icons service-icon" aria-hidden="true">memory</span>
+        <h3 class="service-title">AI Automation Solutions</h3>
+        <p class="service-desc">Smart automation  powered by AI tools to optimize your processes and increase efficiency across tasks.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="E-commerce Integration">
+        <span class="material-icons service-icon" aria-hidden="true">shopping_cart</span>
+        <h3 class="service-title">E-commerce Integration</h3>
+        <p class="service-desc">Fully functional and secure e-commerce stores on WordPress with seamless payment and product management.</p>
+      </article>
+      <article class="service-card" tabindex="0" aria-label="Maintenance and Support">
+        <span class="material-icons service-icon" aria-hidden="true">build_circle</span>
+        <h3 class="service-title">Maintenance &amp; Support</h3>
+        <p class="service-desc">Reliable website upkeep and technical support to keep your site fast, secure, and updated at all times.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="portfolio" role="region" aria-labelledby="portfolio-title" class="container">
+    <h2 id="portfolio-title" class="section-title">Portfolio Highlights</h2>
+    <div class="portfolio-grid">
+      <article class="portfolio-item" tabindex="0" aria-label="Corporate website project using WordPress">
+        <img class="portfolio-image" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6845c717-145c-4ce4-9ea9-d72a3aa7c3f3.png" alt="Corporate style WordPress website with dark blue background and golden highlights with modern navigation" loading="lazy" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Corporate WordPress Site</h3>
+          <p class="portfolio-desc">Developed a sleek and responsive corporate website using WordPress with custom theme and plugins.</p>
+          <div class="portfolio-tech">WordPress</div>
+        </div>
+      </article>
+      <article class="portfolio-item" tabindex="0" aria-label="AI-powered customer support chatbot project">
+        <img class="portfolio-image" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9142c06-3f98-40e9-a57a-d327176f4d5b.png" alt="Screenshot of AI-powered chatbot interface with dark blue theme supporting customer queries with golden accents" loading="lazy" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">AI-powered Chatbot Tool</h3>
+          <p class="portfolio-desc">Built an AI-driven chatbot to automate customer support, boosting responsiveness and reducing costs.</p>
+          <div class="portfolio-tech">Renowned automation tools and BI tools</div>
+        </div>
+      </article>
+      <article class="portfolio-item" tabindex="0" aria-label="E-commerce webpage with WooCommerce integration">
+        <img class="portfolio-image" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b92d29b1-7d42-4a72-9107-12bb5f2958f3.png" alt="Modern e-commerce web page featuring product catalog and shopping cart built with WooCommerce with dark blue and golden highlights" loading="lazy" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">WooCommerce E-commerce Store</h3>
+          <p class="portfolio-desc">Implemented an online store with WooCommerce plugin, optimized for sales and customer experience.</p>
+          <div class="portfolio-tech">WordPress, WooCommerce, PHP</div>
+        </div>
+      </article>
+      <article class="portfolio-item" tabindex="0" aria-label="Automation dashboard showing workflow charts and data">
+        <img class="portfolio-image" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/27b16553-c6b2-48ef-b3e0-f4d837bc18db.png" alt="Dashboard interface showing AI automation workflows, charts, and metrics in dark blue and golden modern UI style" loading="lazy" />
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Automation Workflow Dashboard</h3>
+          <p class="portfolio-desc">Created a dashboard visualizing workflow statuses and performance metrics for AI-powered automation tools.</p>
+          <div class="portfolio-tech">Renowned automation tools</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" role="region" aria-labelledby="contact-title" class="container" style="padding-bottom:80px;">
+    <h2 id="contact-title" class="section-title" style="color:#bfa136;">Get in Touch</h2>
+    <p style="text-align:center; max-width:600px; margin-left:auto; margin-right:auto; font-size:1.1rem; color:#cfc7bb;">
+      Interested in working together? Reach out via email at &nbsp;
+      <a href="mailto:manishadutta95115@gmail.com">manishadutta95115@gmail.com</a>
+      &nbsp;or connect through LinkedIn below.
+    </p>
+    <div style="text-align:center; margin-top:32px;">
+      <a href="https://www.linkedin.com/in/manisha-dutta-24a859333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" style="font-weight:700; color:#d4af37; font-size:1.15rem; text-decoration:underline;">
+        <span class="material-icons" aria-hidden="true" style="vertical-align:middle; margin-right:8px;">linkedin</span>
+        LinkedIn Profile
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    &copy; 2025 Manisha Dutta. All rights reserved. &nbsp;&middot;&nbsp;
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetElem = document.querySelector(this.getAttribute('href'));
+      if(targetElem) {
+        targetElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
